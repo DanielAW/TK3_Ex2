@@ -89,7 +89,7 @@ namespace TK3_Ex2.Classes.Pages
         }
 
         /// <summary>
-        /// 
+        /// method for drawing the result dots
         /// </summary>
         /// <param name="result"></param>
         private void drawResultDots(int[] result)
@@ -103,6 +103,7 @@ namespace TK3_Ex2.Classes.Pages
             }
         }
 
+        //method for creating a new line
         private void writeNewLine()
         {
             drawSelectedDot(0);
@@ -113,6 +114,7 @@ namespace TK3_Ex2.Classes.Pages
             }
         }
 
+        //method for drawing the selected dot
          private void drawSelectedDot(int position)
         {
             int xPos = Constants.SMALL_DOT_X_START + position * Constants.SMALL_DOT_COLUMN_SPACE - (Constants.SMALL_DOT_DIFF / 2);
@@ -126,6 +128,7 @@ namespace TK3_Ex2.Classes.Pages
             myDisplay.printDot(color, xPos-1 , yPos-1 , Constants.SMALL_DOT_SIZE);
         }
 
+         //method for drawing the deselected dot
          private void drawDeselectedDot(int position)
          {
              int xPos = Constants.SMALL_DOT_X_START + position * Constants.SMALL_DOT_COLUMN_SPACE - (Constants.SMALL_DOT_DIFF / 2);
@@ -139,6 +142,7 @@ namespace TK3_Ex2.Classes.Pages
              myDisplay.printDot(color, xPos-1, yPos-1, Constants.SMALL_DOT_SIZE);
          }
 
+         //method for reacting to joystick movement
          void PageInterface.joystickMove(Definitions.JoystickPosition position)
         {
             int lastPosition = horizontalPosition;
@@ -169,6 +173,7 @@ namespace TK3_Ex2.Classes.Pages
             }
         }
 
+         //method for reacting to a pressed button, including the statement whether the game was won or lost
         GameStates PageInterface.buttonPressed()
         {
             int[] resultFields = logic.compareCode(guessedCode);

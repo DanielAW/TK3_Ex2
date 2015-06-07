@@ -8,6 +8,9 @@ using TK3_Ex2.Classes;
 
 namespace TK3_Ex2.Classes
 {
+    /// <summary>
+    /// Class containing the game controller 
+    /// </summary>
     class GameController :  ControlInterface
     {
         private PageInterface currentPage;
@@ -33,9 +36,10 @@ namespace TK3_Ex2.Classes
 
         public void joystickPressed()
         {
-           
+           // not needed here
         }
 
+        // method handling the pressed button event (e.g. what page/screen to load next)
         public void buttonPressed()
         {
             switch(currentState)

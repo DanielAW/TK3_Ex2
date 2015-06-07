@@ -6,6 +6,9 @@ using TK3_Ex2.Definitions;
 
 namespace TK3_Ex2.Classes.Pages
 {
+    /// <summary>
+    /// Creates the page on which the player can select the code
+    /// </summary>
     class CodeSelectionPage : PageInterface
     {
         private Code myCode;
@@ -14,6 +17,7 @@ namespace TK3_Ex2.Classes.Pages
         private int leftBorder;
         private int middle;
 
+        //method to draw the code selection page (e.g. the main content)
         public CodeSelectionPage(Code newCode, DisplayInterface display)
         {
             myCode = newCode;
@@ -25,6 +29,7 @@ namespace TK3_Ex2.Classes.Pages
             this.drawPage();
         }
 
+        // method for drawing the current page (e.g. the main content)
         private void drawPage()
         {
             myDisplay.clearDisplay();
@@ -39,6 +44,7 @@ namespace TK3_Ex2.Classes.Pages
             }
         }
 
+        //method to draw the currently selected dot
         private void drawSelectedDot(int position)
         {
             int xPos = leftBorder + position * Constants.DOT_COLUMN_SPACE - (Constants.DOT_DIFF / 2);
@@ -51,6 +57,7 @@ namespace TK3_Ex2.Classes.Pages
             myDisplay.printDot(color, xPos-1, middle-1, Constants.DOT_SIZE);
         }
 
+        //method to draw the deselected dot
         private void drawDeselectedDot(int position)
         {
             int xPos = leftBorder + position * Constants.DOT_COLUMN_SPACE - (Constants.DOT_DIFF / 2);
@@ -63,6 +70,7 @@ namespace TK3_Ex2.Classes.Pages
             myDisplay.printDot(color, xPos-1, middle-1, Constants.DOT_SIZE);
         }
 
+        //method for reacting to joystick movement
         void PageInterface.joystickMove(Definitions.JoystickPosition position)
         {
             int lastPosition = horizontalPosition;
@@ -92,10 +100,9 @@ namespace TK3_Ex2.Classes.Pages
                     break;
             }
 
-            
-
         }
 
+        // goto the code breaking page
        GameStates PageInterface.buttonPressed()
         {
             return GameStates.CodeBreaking;

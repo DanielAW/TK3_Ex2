@@ -8,6 +8,9 @@ namespace TK3_Ex2.Classes.Pages
 {
     class GameSelectionPage : PageInterface
     {
+        /// <summary>
+        /// Creates the page on which the player can select the game mode (single or multiplayer)
+        /// </summary>
         private DisplayInterface myDisplay;
         private int verticalPosition;
         private const int GAME_MODE_COUNT = 2;
@@ -19,7 +22,7 @@ namespace TK3_Ex2.Classes.Pages
             this.drawPage();
         }
 
-
+        // method for drawing the page onto the display
         private void drawPage()
         {
             myDisplay.clearDisplay();
@@ -28,7 +31,7 @@ namespace TK3_Ex2.Classes.Pages
 
             this.drawButtons();
         }
-
+        // method for drawing the 2 buttons onto the display (single or multiplayer) 
         private void drawButtons()
         {
             int xPos = Constants.DISPLAY_MIDDLE_X - (Constants.BUTTON_WIDTH / 2) - Constants.SELECTION_MARKER_WIDTH - (Constants.BUTTON_V_DISTANCE/2);
@@ -49,8 +52,6 @@ namespace TK3_Ex2.Classes.Pages
                 myDisplay.printRectangle(DisplayColors.Gray, xPos, yPos, width, height);
             }
 
-
-
             xPos = Constants.DISPLAY_MIDDLE_X - (Constants.BUTTON_WIDTH / 2) - (Constants.BUTTON_V_DISTANCE / 2) + Constants.PRINT_WIDTH ;
             yPos = Constants.DISPLAY_MIDDLE_Y - (Constants.BUTTON_HEIGHT / 2) - (Constants.BUTTON_V_DISTANCE / 2) + Constants.PRINT_HEIGHT *2;
             width = Constants.BUTTON_WIDTH;
@@ -58,13 +59,12 @@ namespace TK3_Ex2.Classes.Pages
 
             myDisplay.printTextRectangle("Singleplayer", DisplayColors.White, xPos, yPos, width, height);
 
-
             yPos = Constants.DISPLAY_MIDDLE_Y + (Constants.BUTTON_HEIGHT / 2) + (Constants.BUTTON_V_DISTANCE / 2) + Constants.PRINT_HEIGHT;
 
             myDisplay.printTextRectangle("Multiplayer", DisplayColors.White, xPos, yPos, width, height);
         }
 
-
+        // Method for selecting the buttons when the joystick is touched
         void PageInterface.joystickMove(Definitions.JoystickPosition position)
         {
             switch (position)
@@ -77,6 +77,7 @@ namespace TK3_Ex2.Classes.Pages
             }
         }
 
+        // Method for jumping to the selected page when the button is pressed
         GameStates PageInterface.buttonPressed()
         {
             if (0 == verticalPosition)

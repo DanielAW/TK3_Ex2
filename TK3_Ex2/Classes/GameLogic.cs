@@ -5,6 +5,9 @@ using TK3_Ex2.Definitions;
 
 namespace TK3_Ex2.Classes
 {
+    /// <summary>
+    /// The class containing all of the games logic
+    /// </summary>
     class GameLogic
     {
         private Code currentCode;
@@ -17,7 +20,7 @@ namespace TK3_Ex2.Classes
             currentCode = code;
         }
 
-
+        // method for comparing the guessed code and the saved code
         public int[] compareCode(Code guessedCode)
         {
             int rightPosition = 0;
@@ -78,6 +81,7 @@ namespace TK3_Ex2.Classes
             return result;
         }
 
+        // method returning true if the guess was right
         public bool rightGuess(Code guessedCode)
         {  
             for (int i = 0; i < Constants.COLUMNS; i++)

@@ -7,7 +7,10 @@ namespace TK3_Ex2.Classes
 {
     class Code
     {
-        
+        /// <summary>
+        /// Class handling the controlling of the code
+        /// </summary>
+
         private int[] myCode;
 
         public Code()
@@ -19,6 +22,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method for setting a new code
         public Code(int[] newCode)
         {
             myCode = new int[Constants.COLUMNS];
@@ -28,6 +32,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method for setting the code to default values (00000)
         public void setToDefault()
         {
             for (int i = 0; i < Constants.COLUMNS; i++)
@@ -36,6 +41,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method for setting the code to random values 
         public void setCodeToRandomValue()
         {
             myCode = new int[Constants.COLUMNS];
@@ -47,6 +53,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method incrementing the code at the current position
         public void incrementCodeAtPosition(int position)
         {
             if (position < Constants.COLUMNS && position >= 0)
@@ -55,6 +62,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method decrementing the code at the current position
         public void decrementCodeAtPosition(int position)
         {
             if (position < Constants.COLUMNS && position >= 0)
@@ -63,6 +71,7 @@ namespace TK3_Ex2.Classes
             }
         }
 
+        // method returing the code at the current position
         public int getCodeAtPosition(int position)
         {
             if (position < Constants.COLUMNS && position >= 0)
@@ -71,6 +80,7 @@ namespace TK3_Ex2.Classes
                 return -1;
         }
 
+        // method returing the gamecolor at the current position
         public GameColors getGameColorAtPosition(int position)
         {
             if (position < Constants.COLUMNS && position >= 0)
@@ -79,6 +89,7 @@ namespace TK3_Ex2.Classes
                 return GameColors.White;
         }
 
+        // method returing the gamecolors
         public GameColors[] getGameColors()
         {
             GameColors[] colors = new GameColors[Constants.COLUMNS];
@@ -91,6 +102,7 @@ namespace TK3_Ex2.Classes
             return colors;
         }
 
+        // method to compare the current position in the code with the saved code value
         public bool compareWithCodeAtPosition(int position, int code)
         {
             if (position < Constants.COLUMNS && position >= 0)
@@ -99,6 +111,7 @@ namespace TK3_Ex2.Classes
                 return false;
         }
 
+        // method to compare the current position in the code with the saved code value
         public bool compareWithCodeAtPosition(int position, Code compareCode)
         {
             if (position < Constants.COLUMNS && position >= 0)

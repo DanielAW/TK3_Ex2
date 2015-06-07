@@ -5,6 +5,7 @@ using TK3_Ex2.Definitions;
 
 namespace TK3_Ex2.Interfaces
 {
+    // Controller Interface for joystick movement
     interface ControlInterface
     {
         void joystickMoved(JoystickPosition position);
